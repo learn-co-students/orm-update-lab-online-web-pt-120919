@@ -24,7 +24,7 @@ sql = <<-SQL
 Drop Table IF Exists students
 SQL
 DB[:conn].execute(sql)
-end
+
 end
 
 def save
@@ -38,6 +38,7 @@ if self.id
     DB[:conn].execute(sql, self.name, self.grade)
     @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
     end
+  end  
 end
 
 
